@@ -7,7 +7,7 @@ bool isValidSubsequence(vector<int> array, vector<int> sequence) {
 	}
 	for(int i = 0; i < array.size(); i++){
 		if(array[i] == sequence[seqIdx]){
-			seqIdx++;
+			seqIdx++; //this is the iterator that keeps track of of the elements
 		}
 		if(seqIdx == sequence.size()){
 			return true;
