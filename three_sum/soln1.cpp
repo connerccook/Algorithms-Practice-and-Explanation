@@ -30,3 +30,31 @@ vector<vector<int>> threeNumberSum(vector<int> array, int targetSum) {
 
 //O(n^2) T and O(n) S
 //The concept of left and right is very important for future array manipulation problems
+/*
+vector<vector<int>> threeNumberSum(vector<int> array, int targetSum) {
+    vector<vector<int>> answer; the answer is a 2d vector bc there are multiple solutions
+    int currentSum; this is how were tracking the sums
+    int left, right; these are our iterators that keep track of where we are in the Array
+    sort(array.begin(), array.end()); we sort in order to keep track, Onlogn
+    for(size_t i = 0; i < array.size(); i++){ we have this loop here because it will check all solutions    
+        left = i + 1;
+        right = array.size() - 1;
+        while(left < right){ if right is < left this means that the iterators cross over and the loop ends
+            currentSum = array[i] + array[left] + array[right];
+            if (currentSum == targetSum){
+                answer.push_back({array[i], array[left], array[right]}); 
+                left++;
+                right--;
+            } else if(currentSum < targetSum){ if the sum is less that target then we increase the left for a bigger solution
+                left++;
+            } else if(currentSum > targetSum){ if the sum is greater than the target then we decrement the right for a smaller solution
+                right--;
+            }
+        }
+    }
+    return answer;
+
+}
+
+
+*l
